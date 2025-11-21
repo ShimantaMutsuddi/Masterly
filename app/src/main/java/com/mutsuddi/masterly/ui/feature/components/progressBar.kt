@@ -17,7 +17,7 @@ fun progressBar(progress: Int) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(12.dp)
+            .height(10.dp)
             .background(color = gray, shape = RoundedCornerShape(50))
     ) {
         Box(

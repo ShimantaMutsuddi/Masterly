@@ -22,10 +22,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.mutsuddi.masterly.R
 import com.mutsuddi.masterly.ui.theme.colorPrimary
 import com.mutsuddi.masterly.ui.theme.gray
 
@@ -62,15 +64,16 @@ fun SkillCardItem(modifier: Modifier=Modifier,progress :Int,hours:Int,skillName:
                         tint = colorPrimary
                     )
                 }
+                Spacer(Modifier.width(8.dp))
                 Row(
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     Icon(
-                        imageVector = Icons.Default.DateRange,
+                        painter = painterResource(R.drawable.ic_stopwatch),
                         contentDescription = null,
                         tint = Color.Gray
                     )
-                    Spacer(Modifier.width(5.dp))
+                    Spacer(Modifier.width(8.dp))
                     Text(
                         text = "$hours/1000 hours",
                         color = Color.White
@@ -79,7 +82,7 @@ fun SkillCardItem(modifier: Modifier=Modifier,progress :Int,hours:Int,skillName:
                 }
 
             }
-            Spacer(modifier = Modifier.height(35.dp))
+            Spacer(modifier = Modifier.height(25.dp))
             Column{
                 Row(
                     modifier = Modifier.fillMaxWidth(),
