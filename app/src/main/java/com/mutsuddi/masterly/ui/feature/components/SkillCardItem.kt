@@ -28,11 +28,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mutsuddi.masterly.R
+import com.mutsuddi.masterly.data.model.Skill
 import com.mutsuddi.masterly.ui.theme.colorPrimary
 import com.mutsuddi.masterly.ui.theme.gray
 
 @Composable
-fun SkillCardItem(modifier: Modifier=Modifier,progress :Int,hours:Int,skillName:String) {
+fun SkillCardItem(modifier: Modifier=Modifier,skill: Skill) {
     Card(
         modifier = modifier
             .fillMaxWidth()
@@ -53,13 +54,13 @@ fun SkillCardItem(modifier: Modifier=Modifier,progress :Int,hours:Int,skillName:
 
                 ) {
                     Text(
-                        text = skillName,
+                        text = skill.name,
                         color = Color.White,
                         fontWeight = FontWeight.Bold,
                         fontSize = 15.sp
                     )
                     Icon(
-                        imageVector = Icons.Default.ArrowForward,
+                        painter = painterResource(R.drawable.ic_arrow),
                         contentDescription = null,
                         tint = colorPrimary
                     )
@@ -69,13 +70,13 @@ fun SkillCardItem(modifier: Modifier=Modifier,progress :Int,hours:Int,skillName:
                     verticalAlignment = Alignment.CenterVertically
                 ){
                     Icon(
-                        painter = painterResource(R.drawable.ic_stopwatch),
+                        painter = painterResource(R.drawable.ic_clock),
                         contentDescription = null,
                         tint = Color.Gray
                     )
                     Spacer(Modifier.width(8.dp))
                     Text(
-                        text = "$hours/1000 hours",
+                        text = "${skill.completedHour}/${skill.targetHour} hours",
                         color = Color.White
                     )
 
@@ -89,10 +90,10 @@ fun SkillCardItem(modifier: Modifier=Modifier,progress :Int,hours:Int,skillName:
                     horizontalArrangement = Arrangement.SpaceBetween
                 ){
                     Text(text = "Progress", color = Color.Gray)
-                    Text(text = "$progress%", color = Color.White)
+                    Text(text = "${skill.progress()}%", color = Color.White)
                 }
                 Spacer(Modifier.height(10.dp))
-                progressBar(progress)
+                progressBar(skill.progress())
 
             }
         }
@@ -101,16 +102,16 @@ fun SkillCardItem(modifier: Modifier=Modifier,progress :Int,hours:Int,skillName:
 
 
 
-@Preview(showBackground = true)
-@Composable()
-fun previewSkillCardItem(){
-    SkillCardItem(progress = 35, hours = 1022, skillName = "Guiter")
-}
-
-@Preview(showBackground = true)
-@Composable()
-fun previewSkillCardItem2(){
-    SkillCardItem(progress = 70, hours = 8822, skillName = "MAke Money")
-}
+//@Preview(showBackground = true)
+//@Composable()
+//fun previewSkillCardItem(){
+//    SkillCardItem(progress = 35, hours = 1022, skillName = "Guiter")
+//}
+//
+//@Preview(showBackground = true)
+//@Composable()
+//fun previewSkillCardItem2(){
+//    SkillCardItem(progress = 70, hours = 8822, skillName = "MAke Money")
+//}
 
 

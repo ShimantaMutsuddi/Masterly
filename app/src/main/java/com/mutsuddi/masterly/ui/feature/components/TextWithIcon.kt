@@ -3,6 +3,7 @@ package com.mutsuddi.masterly.ui.feature.components
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Icon
@@ -27,7 +28,8 @@ fun TextWithIcon(text: String,icon: Painter,tint: Color,modifier: Modifier=Modif
         Icon(
             painter = icon,
             contentDescription = null,
-            tint = tint
+            tint = tint,
+            modifier = Modifier.size(18.dp)
         )
         Spacer(Modifier.width(5.dp))
         Text(
